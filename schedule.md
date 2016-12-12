@@ -7,37 +7,20 @@
 ---
 
 # **Instructor-Student one-on-one**
-## **Tuesday (12/13)**
-### *Students Meeting with Boshika*             
-| Student | Time |  
-|:-------------:   | :-------------: | 
-| Kris | 10:00am -10:10am |
-| Kora | 10:10am -10:10am |
-| Rony | 10:20am -10:30am |
-| Michelle | 10:30am -10:40am |
-| An | 10:40am -10:50am |
-| Tim | 11:30am -11:40am |
-| Dakotah | 11:40am -11:50am |
-| Lacey | 11:50am -12:00pm  |
-| Qian | 12:00pm -12:10pm |
-| Mimi | 12:10pm -12:20pm |
-
-
-
- ### *Students Meeting with Phil*
-| Student | Time |  
-|:-------------:   | :-------------: | 
-| Margie | 10:00am -10:10am |   
-| Bao | 10:10am -10:20am |
-| Ritwick | 10:20am -10:30am |
-| Abi | 10:30am -10:40am  |
-| Justin | 10:40am-10:50am  |
-| Jake | 11:30am -11:40am |   
-| Andrew | 11:40am -11:50am |
-| Barrett | 11:50am -12:00pm |
-| Brad | 12:00pm -12:10pm |
-| James | 12:10pm -12:20pm |
-
+## **Tuesday (12/13)**            
+| Instructor-Student | Time | Instructor-Student | Time |  
+|:-------------: | :-------------: |:-------------: |:-------------: |
+| Boshika-Kris | 10:00am -10:10am | Phil-Margie | 10:00am -10:10am |  
+| Boshika- Kora | 10:10am -10:10am | Phil-Bao | 10:10am -10:20am |
+| Boshika-Rony | 10:20am -10:30am | Phil-Ritwick | 10:20am -10:30am |
+| Boshika-Michelle | 10:30am -10:40am | Phil-Abi | 10:30am -10:40am  |
+| Boshika-An | 10:40am -10:50am | Phil-Justin | 10:40am-10:50am  |
+| Boshika-Tim | 11:30am -11:40am | Phil-Jake | 11:30am -11:40am |  
+| Boshika-Dakotah | 11:40am -11:50am | Phil-Andrew | 11:40am -11:50am |
+| Boshika-Lacey | 11:50am -12:00pm  | Phil-Barrett | 11:50am -12:00pm |
+| Boshika-Qian | 12:00pm -12:10pm | Phil-Brad | 12:00pm -12:10pm |
+| Boshika-Mimi | 12:10pm -12:20pm | Phil-James | 12:10pm -12:20pm |
+ 
 ---
 
 # **INSTRUCTOR-STUDENT PAIRING SCHEDULE**
