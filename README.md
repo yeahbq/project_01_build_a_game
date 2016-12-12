@@ -84,8 +84,6 @@ Niceties:
 - **Frame the users' interaction with the game in terms of User Stories.**
 - **Use your Development Tools** (`console.log`, inspector, `alert` statements,
   etc.) to debug and solve problems.
-- Work through the lessons in class and
-  **[post GitHub Issues when you need to](../project_issues_protocol)**!
 - **Commit early, commit often.** Don’t be afraid to break something because
   you can always go back in time to a previous version.
 - **Consult documentation resources** (MDN, etc.) to better understand
