@@ -22,6 +22,7 @@
 | Qian | 12:00pm -12:10pm |
 | Mimi | 12:10pm -12:20pm |
 
+---
 
  ### *Students Meeting with Phil*
 | Student | Time |  
@@ -29,8 +30,8 @@
 | Margie | 10:00am -10:10am |   
 | Bao | 10:10am -10:20am |
 | Ritwick | 10:20am -10:30am |
-| Abi | 10:30am -10:40am |
-| Justin | 10:40am-10:50am |
+| Abi | 10:30am -10:40am  |
+| Justin | 10:40am-10:50am  |
 | Jake | 11:30am -11:40am |   
 | Andrew | 11:40am -11:50am |
 | Barrett | 11:50am -12:00pm |
@@ -100,6 +101,7 @@
 | Qian | 12:00pm -12:10pm |
 | Mimi | 12:10pm -12:20pm |
 
+---
 
  ### *Students Meeting with Boshika*
 | Student | Time |  
