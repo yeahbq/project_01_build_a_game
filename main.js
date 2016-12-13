@@ -1,39 +1,67 @@
-console.log('hi')
+var newBoard = [
+  [0, 1, 2, 3, 4, 5, 6],
+  [1, 1, 2, 3, 4, 5, 6],
+  [2, 1, 2, 3, 4, 5, 6],
+  [3, 1, 2, 3, 4, 5, 6],
+  [4, 1, 2, 3, 4, 5, 6],
+  [5, 1, 2, 3, 4, 5, 6],
+  [6, 1, 2, 3, 4, 5, 6],
 
-// var myGamePiece;
+];
 
-// function startGame() {
-//   myGamePiece = new component(30, 30, "red", 10, 120)
-//   // myGamePiece = new component(30, 30, "black", 50, 120)
-//   myGameArea.start();
+var players = [
+  {
+    name: 'red'
+  },
+  {
+    name: 'black'
+  }
+];
 
-// }
+var currentPlayer;
+//start as black player, so when next turn is run, red starts the game
 
-// var myGameArea = {
-//   canvas : document.createElement("canvas"),
-//   start: function() {
-//     this.canvas.width = 480;
-//     this.canvas.height = 270;
-//     this.context = this.canvas.getContext('2d');
-//     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-//     this.interval = setInterval(updateGameArea, 20);
-//   },
-//   clear: function() {
-//     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-//   }
-// }
+var nextTurn = function() {
+//changes who currentPlayer points at
+  if (currentPlayer && currentPlayer.name === 'red') {
+    currentPlayer = players[1];
+    console.log(currentPlayer.name)
+  } else {
+    currentPlayer = players[0];
+    console.log(currentPlayer.name)
+  }
 
-// function component(width, height, color, x, y) {
-//   this.width = width;
-//   this.height = height;
-//   this.x = x;
-//   this.y = y;
-//   ctx = myGameArea.context;
-//   ctx.fillStyle = color;
-//   ctx.fillRect(this.x, this.y, this.width, this.height);
-// }
+}
+var board = document.querySelector('.board');
+var row = document.querySelector('.row');
+var hole = document.querySelector('.hole');
 
-// function updateGameArea() {
-//   myGameArea.clear();
-//   myGamePiece.update();
-// }
+var handleClick = function(event) {
+  console.log(event.target, this);
+  var position = this.dataset;
+  renderBoard();
+  nextTurn();
+  currentPlayer.name === 'red' ? event.target.classList.add('pred') : event.target.classList.add('pblack');
+
+}
+
+var playerColor = function() {
+currentPlayer.name === 'red' ? this.classList.add('pred') : this.classList.add('pblack');
+}
+
+
+var renderBoard = function () {
+ var html = '';
+ for (var i = 0; i < newBoard.length; i++) {
+   html += '<div class="row">';
+   for (var j = 0; j < newBoard[i].length; j++) {
+     html += '<div class="hole" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j] + '</div>';
+   }
+   html += '</div>'
+ }
+ document.querySelector('.board').innerHTML = html;
+}
+board.addEventListener('click', handleClick);
+// row.addEventListener('click', handleClick);
+hole.addEventListener('click', renderBoard);
+
