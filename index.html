@@ -28,9 +28,18 @@ var myGameArea = {
     start : function() {
         this.canvas.width = 480;
         this.canvas.height = 270;
+        this.canvas.style.cursor = "none"; //hides original cursor
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('touchmove', function (e) {
+          myGameArea.x = e.touches[0].screenX;
+          myGameArea.y = e.touches[0].screenY;
+        })
+        window.addEventListener('mousemove', function (e) {
+          myGameArea.x = e.pageX; //cursor location on the page
+          myGameArea.y = e.pageY;
+        })
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -58,43 +67,21 @@ function component(width, height, color, x, y) {
 
 function updateGameArea() {
     myGameArea.clear();
-    myGamePiece.newPos();
-    // redGamePiece.x +=1;
-    // yellowGamePiece.x += 1;
-    // yellowGamePiece.y += 1;
-    // blueGamePiece.x += 1;
-    // blueGamePiece.y += 1;
+    if (myGameArea.touchX && myGameArea.touchY) { //for touch control input
+        myGamePiece.x = myGameArea.x;
+        myGamePiece.y = myGameArea.y;
+    }
 
-    // redGamePiece.update();
-    // blueGamePiece.update();
-    // yellowGamePiece.update();
-    // myGamePiece.x += 1;
+    if (myGameArea.x && myGameArea.y) { //for mouse control input
+        myGamePiece.x = myGameArea.x;
+        myGamePiece.y = myGameArea.y;
+    }
     myGamePiece.update();
 }
 
-function moveup() {
-  myGamePiece.speedY -= 1;
-}
 
-function movedown() {
-  myGamePiece.speedY += 1;
-}
-
-function moveleft () {
-  myGamePiece.speedX -= 1;
-}
-
-function moveright () {
-  myGamePiece.speedX += 1;
-}
 </script>
-<div style="text-align: center; width: 480px;">
-  <button onclick="moveup()">UP</button><br><br>
-  <button onclick="moveleft()">LEFT</button>
-  <button onclick="moveright()">RIGHT</button><br><br>
-  <button onclick="movedown()">DOWN</button>
-</div>
 
-<p>If you click a button thre red square will move quickly</p>
+<p>Move the cursor inside the canvas to move the square</p>
 </body>
 </html>
