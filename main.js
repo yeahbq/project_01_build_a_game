@@ -1,12 +1,10 @@
 var newBoard = [
-  [0, 1, 2, 3, 4, 5, 6],
+  [0, 1, 0, 3, 4, 5, 6],
   [1, 1, 2, 3, 4, 5, 6],
   [2, 1, 2, 3, 4, 5, 6],
   [3, 1, 2, 3, 4, 5, 6],
   [4, 1, 2, 3, 4, 5, 6],
-  [5, 1, 2, 3, 4, 5, 6],
-  [6, 1, 2, 3, 4, 5, 6],
-
+  [5, 1, 2, 3, 4, 5, 6]
 ];
 
 var players = [
@@ -18,6 +16,8 @@ var players = [
   }
 ];
 
+var row = document.querySelector('.row');
+
 var currentPlayer;
 //start as black player, so when next turn is run, red starts the game
 
@@ -28,25 +28,22 @@ var nextTurn = function() {
     console.log(currentPlayer.name)
   } else {
     currentPlayer = players[0];
-    console.log(currentPlayer.name)
+        console.log(currentPlayer.name)
   }
 
 }
-var board = document.querySelector('.board');
-var row = document.querySelector('.row');
-var hole = document.querySelector('.hole');
 
 var handleClick = function(event) {
-  console.log(event.target, this);
+  // console.log(event.target, this);
   var position = this.dataset;
+  newBoard[position.row][position.col] = currentPlayer.name;
   renderBoard();
   nextTurn();
-  currentPlayer.name === 'red' ? event.target.classList.add('pred') : event.target.classList.add('pblack');
 
-}
-
-var playerColor = function() {
-currentPlayer.name === 'red' ? this.classList.add('pred') : this.classList.add('pblack');
+  //   if (event.target.classList.contains('hole')) {
+  //   console.log('got emmm')
+  //   // hole.style.background = "red";
+  // }
 }
 
 
@@ -60,8 +57,17 @@ var renderBoard = function () {
    html += '</div>'
  }
  document.querySelector('.board').innerHTML = html;
+ addEventListeners();
 }
-board.addEventListener('click', handleClick);
-// row.addEventListener('click', handleClick);
-hole.addEventListener('click', renderBoard);
+
+var addEventListeners = function() {
+var holes = document.querySelectorAll('.hole');
+  for (var i = 0; i < holes.length; i++) {
+    holes[i].addEventListener('click', handleClick)
+  }
+
+}
+nextTurn();
+renderBoard();
+ // document.querySelector('.board').addEventListener('click', handleClick)
 
