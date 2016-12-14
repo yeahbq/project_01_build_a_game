@@ -19,7 +19,7 @@ var players = [
 
 var row = document.querySelector('.row');
 var board = document.querySelector('.board');
-var hole = document.querySelectorAll('.hole');
+// var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
 
 var currentPlayer = players[1];
 //start as black player, so when next turn is run, red starts the game
@@ -52,31 +52,45 @@ var renderBoard = function () {
 
 //adds color based off currentPlayer.name
 var addClass = function(event) {
-      // console.log(event.target);
-      if (event.target.classList == "hole" && currentPlayer.name === "red") {
-       event.target.classList.add('red');
-       console.log(event.target.dataset)
-         nextTurn();
+  var hole = document.querySelectorAll('.hole')
+  var col; //the dataset of event.target column
+  var row; //dataset of event.target row
 
+      if (event.target.classList == "hole" && currentPlayer.name === "red") {
+      // console.log(event.target.dataset.col)
+      // console.log(this)
+      col = event.target.dataset.col;
+      console.log(col);
+        if (col == 1) {
+          hole[36].classList.add('red');
+        }
+       // event.target.classList.add('red');
+       nextTurn();
       }
 
     else if (event.target.classList == "hole" && currentPlayer.name === "black") {
-      event.target.classList.add('black');
-      console.log(event.target.dataset)
-      nextTurn();
+      // console.log(event.target.dataset.col)
+      // console.log(this)
+      col = event.target.dataset.col;
+      console.log(col);
 
+      if (col == 0) {
+        hole[35].classList.add('black');
+      }
+      // event.target.classList.add('black');
+      nextTurn();
     }
     }
 
 var handleClick = function(event) {
-  var position = this.dataset;
-  console.log(this)
-  console.log(newBoard[position.row][position.col] = currentPlayer.name)
-  console.log('position: ', position);
-  console.log('column: ', position.col);
-  console.log('row', position.row);
-  renderBoard();
-  nextTurn();
+  // var position = this.dataset;
+  // console.log(this)
+  // console.log(newBoard[position.row][position.col] = currentPlayer.name)
+  // console.log('position: ', position);
+  // console.log('column: ', position.col);
+  // console.log('row', position.row);
+  // renderBoard();
+  // nextTurn();
 
 }
 
