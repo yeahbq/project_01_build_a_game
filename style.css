@@ -9,6 +9,8 @@ body {
   border: 2px solid black;
   border-radius: 50px;
   display: inline-block;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .board {
@@ -17,10 +19,10 @@ body {
   padding: 20px 0 10px 20px;
 }
 
-.pred {
+.red {
   background: red;
 }
 
-.pblack {
+.black {
   background: black;
 }
