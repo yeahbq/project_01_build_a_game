@@ -1,3 +1,4 @@
+//~~~~~~~~~~~~~~~~~~~VARIABLES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var newBoard = [
   [0, 1, 2, 3, 4, 5, 6],
   [1, 1, 2, 3, 4, 5, 6],
@@ -17,9 +18,13 @@ var players = [
 ];
 
 var row = document.querySelector('.row');
+var board = document.querySelector('.board');
+var hole = document.querySelectorAll('.hole');
 
 var currentPlayer = players[1];
 //start as black player, so when next turn is run, red starts the game
+
+//~~~~~~~~~~~~~~~~~~~~FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var nextTurn = function() {
 //changes who currentPlayer points at
@@ -30,17 +35,9 @@ var nextTurn = function() {
     currentPlayer = players[0];
         console.log(currentPlayer.name)
   }
-
 }
 
-var handleClick = function(event) {
-  var position = this.dataset;
-  newBoard[position.row][position.col] = currentPlayer.name;
-  nextTurn();
-  renderBoard();
-
-}
-
+//function creates board using innerHTML and runs addEventListenrs function
 var renderBoard = function () {
  var html = '';
  for (var i = 0; i < 6; i++) {
@@ -50,33 +47,40 @@ var renderBoard = function () {
    }
    html += '</div>'
  }
- document.querySelector('.board').innerHTML = html;
- addEventListeners();
-}
-
-var addEventListeners = function () {
-  var holes = document.querySelectorAll('.hole');
-for (var i = 0; i < holes.length; i++) {
-  holes[i].addEventListner('click', handleClick);
-  }
+ board.innerHTML = html;
 }
 
 //adds color based off currentPlayer.name
-var addclass = function(event) {
+var addClass = function(event) {
       // console.log(event.target);
-      if (event.target.classList == "hole" && currentPlayer.name === "red")
-      event.target.classList.add('red');
-    else if (event.target.classList == "hole" && currentPlayer.name === "black")
+      if (event.target.classList == "hole" && currentPlayer.name === "red") {
+       event.target.classList.add('red');
+       console.log(event.target.dataset)
+         nextTurn();
+
+      }
+
+    else if (event.target.classList == "hole" && currentPlayer.name === "black") {
       event.target.classList.add('black');
+      console.log(event.target.dataset)
+      nextTurn();
+
+    }
     }
 
-var board = document.querySelector('.board')
+var handleClick = function(event) {
+  var position = this.dataset;
+  console.log(this)
+  console.log(newBoard[position.row][position.col] = currentPlayer.name)
+  console.log('position: ', position);
+  console.log('column: ', position.col);
+  console.log('row', position.row);
+  renderBoard();
+  nextTurn();
 
-board.addEventListener('click', addclass);
+}
 
-var holes = document.querySelectorAll('.hole');
-
-nextTurn();
+//this event listener uses add class function, and makes clicked items in board red
+board.addEventListener('click', addClass);
 renderBoard();
- // document.querySelector('.board').addEventListener('click', handleClick)
 
