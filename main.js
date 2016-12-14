@@ -55,16 +55,21 @@ var addClass = function(event) {
   var hole = document.querySelectorAll('.hole')
   var col; //the dataset of event.target column
   var row; //dataset of event.target row
+  var rowZero = [0, 1, 2, 3, 4, 5, 6, 7]
+  var rowOne = [7, 8, 9, 10, 11, 12, 13]
+  var rowTwo = [14, 15, 16, 17, 18, 19, 20]
+  var rowThree = [21, 22, 23, 24, 25, 26, 27]
+  var rowFour = [28, 29, 30, 31, 32, 33, 34]
+  var rowFive = [35, 36, 37, 38, 39, 40, 41]
+
 
       if (event.target.classList == "hole" && currentPlayer.name === "red") {
       // console.log(event.target.dataset.col)
       // console.log(this)
       col = event.target.dataset.col;
       console.log(col);
-        if (col == 1) {
-          hole[36].classList.add('red');
-        }
-       // event.target.classList.add('red');
+      hole[rowFive[col]].classList.add('red');
+      // event.target.classList.add('red');
        nextTurn();
       }
 
@@ -73,10 +78,7 @@ var addClass = function(event) {
       // console.log(this)
       col = event.target.dataset.col;
       console.log(col);
-
-      if (col == 0) {
-        hole[35].classList.add('black');
-      }
+      hole[rowFive[col]].classList.add('black');
       // event.target.classList.add('black');
       nextTurn();
     }
