@@ -52,47 +52,60 @@ var renderBoard = function () {
 
 //adds color based off currentPlayer.name
 var addClass = function(event) {
-  console.log(event.target.dataset);
-//this if statement adds class depending on currentPlayer
+  // console.log(event.target.dataset);
   if (event.target.classList.contains('open')) {
-    // console.log(event.target)
-  if (currentPlayer.name == "red") event.target.classList.add('red');
-    else event.target.classList.add('black')
-  nextTurn();
-  event.target.classList.remove('open');
-  }
-}
-
-var rockBottom = function(arr) {
-  var hole = document.querySelectorAll('.hole')
-  var col; //the dataset of event.target column
-  var row; //dataset of event.target row
-  for (var i = 0; i < hole.length; i++) {
-    col = hole[i].dataset.col;
-    row = hole[i].dataset.row;
-    if (row > 4) console.log(i, "row", row, "col", col);
-
-    // console.log(row);
+      col = event.target.dataset.col;
+  row = event.target.dataset.row;
+  col = parseInt(col);
+  row = parseInt(row);
+  // debugger;
+  console.log (row, col);
+  checkSquare(row, col);
   }
 
+
+//this if statement adds class depending on currentPlayer
+  // if (event.target.classList.contains('open')) {
+  //   // console.log(event.target)
+  // if (currentPlayer.name == "red") event.target.classList.add('red');
+  //   else event.target.classList.add('black')
+  // nextTurn();
+  // event.target.classList.remove('open');
+  // }
 }
+
+  // var hole = document.querySelector('.hole[data-row="' + row + '"]' );
+  // var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]');
 
 
 var checkSquare = function(row, col) {
 
-  var hole = document.querySelector('.hole[data-row="' + row + '"]')
-  var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]')
+  var hole = document.querySelector('.hole[data-row="' + row + '"]' );
+  var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]' );
+  hole.dataset.col = col;
+
     // if square is open
     // and if square below is not open
-  if ( hole.classList.contains('open') && !oneBelow ) {
-    debugger;
-    hole.classList.add('red');
+
+  if (hole.classList.contains('open') && !oneBelow ) {
+    if (currentPlayer.name === 'red') {
+      hole.classList.add('red');
+      nextTurn();
+    } else {hole.classList.add('black');
+        nextTurn();
+      }
     hole.classList.remove('open');
+
     return;
-  } else if ( hole.classList.contains('open') && oneBelow.classList.contains('open') ) {
+  } else if (hole.classList.contains('open') && oneBelow.classList.contains('open') ) {
     return checkSquare(row + 1, col);
   } else {
-    hole.classList.add('red');
+      if (currentPlayer.name === 'red') {
+      hole.classList.add('red');
+      nextTurn();
+    } else {hole.classList.add('black');
+      nextTurn();
+      }
     hole.classList.remove('open');
     return;
   }
