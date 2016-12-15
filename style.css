@@ -2,6 +2,15 @@ body {
   background: pink;
 }
 
+.header{
+  background-color: rgba(255, 255, 110, .8);
+  color: rgba(25, 25, 25, .7);
+}
+
+.header:hover {
+outline: dotted red, yellow;
+}
+
 .hole {
   height: 50px;
   width: 50px;
