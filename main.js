@@ -31,7 +31,7 @@ var nextTurn = function() {
   if (currentPlayer && currentPlayer.name === 'red') {
     currentPlayer = players[1];
     console.log(currentPlayer.name, "turn")
-  } else {
+      } else {
     currentPlayer = players[0];
         console.log(currentPlayer.name, "turn")
   }
@@ -43,7 +43,7 @@ var renderBoard = function () {
  for (var i = 0; i < 6; i++) {
    html += '<div class="row">';
    for (var j = 0; j < 7; j++) {
-     html += '<div class="hole" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j] + '</div>';
+     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j] + '</div>';
    }
    html += '</div>'
  }
@@ -52,109 +52,78 @@ var renderBoard = function () {
 
 //adds color based off currentPlayer.name
 var addClass = function(event) {
-  var hole = document.querySelectorAll('.hole')
-  var col; //the dataset of event.target column
-  var row; //dataset of event.target row
-  var rowZero = [0, 1, 2, 3, 4, 5, 6, 7];
-  var rowOne = [7, 8, 9, 10, 11, 12, 13];
-  var rowTwo = [14, 15, 16, 17, 18, 19, 20];
-  var rowThree = [21, 22, 23, 24, 25, 26, 27];
-  var rowFour = [28, 29, 30, 31, 32, 33, 34];
-  var rowFive = [35, 36, 37, 38, 39, 40, 41];
-
-
-      if (event.target.classList == "hole" && currentPlayer.name === "red") {
-      // console.log(event.target.dataset.row)
-      // console.log(this)
+  // console.log(event.target.dataset);
+  if (event.target.classList.contains('open')) {
       col = event.target.dataset.col;
-      row = event.target.dataset.row;
+  row = event.target.dataset.row;
+  col = parseInt(col);
+  row = parseInt(row);
+  // debugger;
+  console.log (row, col);
+  checkSquare(row, col);
+  }
 
-  // if (row < 0) return console.log('not a valid move');
-  // else if (row === 0) return 1;
 
-  // if (!hole[row][col].classList.contains('red') || !hole[row][col].classList.contains('black')) {
-  //   nextTurn();
-  // } else return rockBottom(row-1)
+//this if statement adds class depending on currentPlayer
+  // if (event.target.classList.contains('open')) {
+  //   // console.log(event.target)
+  // if (currentPlayer.name == "red") event.target.classList.add('red');
+  //   else event.target.classList.add('black')
+  // nextTurn();
+  // event.target.classList.remove('open');
+  // }
+}
 
-      if (hole[rowFive[col]].classList.contains('red') || hole[rowFive[col]].classList.contains('black'))
-      {
-      hole[rowFour[col]].classList.add('red');
-      console.log("4 red")
-      } else if (hole[rowFour[col]].classList.contains('red') || hole[rowFour[col]].classList.contains('black')) {
-      hole[rowThree[col]].classList.add('red');
-      console.log("3 red")
-      } else if (hole[rowThree[col]].classList.contains('red') || hole[rowThree[col]].classList.contains('black'))
-      {
-      hole[rowTwo[col]].classList.add('red');
-      console.log("2 red")
-      } else if (hole[rowTwo[col]].classList.contains('red') || hole[rowTwo[col]].classList.contains('black'))
-      {
-      hole[rowOne[col]].classList.add('red');
-      console.log("1 red")
-      } else if (hole[rowOne[col]].classList.contains('red') || hole[rowOne[col]].classList.contains('black')) {
-      hole[rowZero[col]].classList.add('red');
-      console.log('zero red')
-      } else {hole[rowFive[col]].classList.add('red');
-        console.log('5 red')
-        }
-        console.log('changing players')
-        nextTurn();
+  // var hole = document.querySelector('.hole[data-row="' + row + '"]' );
+  // var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]');
 
-      // event.target.classList.add('red');
-      }
 
-    else if (event.target.classList == "hole" && currentPlayer.name === "black") {
-      // console.log(event.target.dataset.row)
-      // console.log(this)
-      col = event.target.dataset.col;
-      row = event.target.dataset.row;
-      // console.log(col);
-      if (hole[rowFive[col]].classList.contains('red') || hole[rowFive[col]].classList.contains('black'))
-      {
-      hole[rowFour[col]].classList.add('black');
-      console.log("4 black")
+var checkSquare = function(row, col) {
+
+  var hole = document.querySelector('.hole[data-row="' + row + '"]' );
+  var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]' );
+  var ahole = document.querySelectorAll('.hole[data-row="' + row + '"]' );
+var aOneBelow = document.querySelectorAll('.hole[data-row="' + (row + 1) + '"]' );
+
+    // if square is open
+    // and if square below is not open
+
+  if (ahole[col].classList.contains('open') && !aOneBelow[col]) {
+
+    if (currentPlayer.name === 'red') {
+      ahole[col].classList.add('red');
+      nextTurn();
+    } else {ahole[col].classList.add('black');
+      nextTurn();
       }
-       else if (hole[rowFour[col]].classList.contains('red') || hole[rowFour[col]].classList.contains('black'))
-      {
-      hole[rowThree[col]].classList.add('black');
-      console.log("3 black")
+    ahole[col].classList.remove('open');
+    return;
+  } else if (ahole[col].classList.contains('open') && aOneBelow[col].classList.contains('open') ) {
+    // debugger;
+    return checkSquare(row + 1, col);
+  } else {
+      if (currentPlayer.name === 'red') {
+      ahole[col].classList.add('red');
+      nextTurn();
+    } else {ahole[col].classList.add('black');
+      nextTurn();
       }
-       else if (hole[rowThree[col]].classList.contains('red') || hole[rowThree[col]].classList.contains('black'))
-      {
-      hole[rowTwo[col]].classList.add('black');
-      console.log("2 black")
-      }
-       else if (hole[rowTwo[col]].classList.contains('red') || hole[rowTwo[col]].classList.contains('black'))
-      {
-      hole[rowOne[col]].classList.add('black');
-      console.log("1 black")
-      }
-       else if (hole[rowOne[col]].classList.contains('red') || hole[rowOne[col]].classList.contains('black'))
-      {
-      hole[rowZero[col]].classList.add('black');
-      console.log('zero black')
-      }
-        else {hole[rowFive[col]].classList.add('black');
-        console.log('5 black')
-        }
-        console.log('changing players')
-        nextTurn();
-    }
-    }
+    ahole[col].classList.remove('open');
+    return;
+  }
+    // set one above
+}
 
 var handleClick = function(event) {
   // var position = this.dataset;
   // console.log(this)
   // console.log(newBoard[position.row][position.col] = currentPlayer.name)
-  // console.log('position: ', position);
-  // console.log('column: ', position.col);
-  // console.log('row', position.row);
   // renderBoard();
   // nextTurn();
+
 
 }
 
 //this event listener uses add class function, and makes clicked items in board red
 board.addEventListener('click', addClass);
 renderBoard();
-
