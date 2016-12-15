@@ -62,32 +62,16 @@ var addClass = function(event) {
   console.log (row, col);
   checkSquare(row, col);
   }
-
-
-//this if statement adds class depending on currentPlayer
-  // if (event.target.classList.contains('open')) {
-  //   // console.log(event.target)
-  // if (currentPlayer.name == "red") event.target.classList.add('red');
-  //   else event.target.classList.add('black')
-  // nextTurn();
-  // event.target.classList.remove('open');
-  // }
 }
 
-  // var hole = document.querySelector('.hole[data-row="' + row + '"]' );
-  // var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]');
-
-
+//function used to recursively check for the bottom of the board using input from the rows
 var checkSquare = function(row, col) {
-
   var hole = document.querySelector('.hole[data-row="' + row + '"]' );
   var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]' );
   var ahole = document.querySelectorAll('.hole[data-row="' + row + '"]' );
-var aOneBelow = document.querySelectorAll('.hole[data-row="' + (row + 1) + '"]' );
-
+  var aOneBelow = document.querySelectorAll('.hole[data-row="' + (row + 1) + '"]' );
     // if square is open
     // and if square below is not open
-
   if (ahole[col].classList.contains('open') && !aOneBelow[col]) {
 
     if (currentPlayer.name === 'red') {
@@ -115,11 +99,11 @@ var aOneBelow = document.querySelectorAll('.hole[data-row="' + (row + 1) + '"]' 
 }
 
 var handleClick = function(event) {
-  // var position = this.dataset;
-  // console.log(this)
-  // console.log(newBoard[position.row][position.col] = currentPlayer.name)
-  // renderBoard();
-  // nextTurn();
+  var position = this.dataset;
+  console.log(this)
+  console.log(newBoard[position.row][position.col] = currentPlayer.name);
+  renderBoard();
+  nextTurn();
 
 
 }
