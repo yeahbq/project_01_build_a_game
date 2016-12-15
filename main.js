@@ -82,31 +82,33 @@ var checkSquare = function(row, col) {
 
   var hole = document.querySelector('.hole[data-row="' + row + '"]' );
   var oneBelow = document.querySelector('.hole[data-row="' + (row + 1) + '"]' );
-  hole.dataset.col = col;
+  var ahole = document.querySelectorAll('.hole[data-row="' + row + '"]' );
+var aOneBelow = document.querySelectorAll('.hole[data-row="' + (row + 1) + '"]' );
 
     // if square is open
     // and if square below is not open
 
-  if (hole.classList.contains('open') && !oneBelow ) {
-    if (currentPlayer.name === 'red') {
-      hole.classList.add('red');
-      nextTurn();
-    } else {hole.classList.add('black');
-        nextTurn();
-      }
-    hole.classList.remove('open');
+  if (ahole[col].classList.contains('open') && !aOneBelow[col]) {
 
+    if (currentPlayer.name === 'red') {
+      ahole[col].classList.add('red');
+      nextTurn();
+    } else {ahole[col].classList.add('black');
+      nextTurn();
+      }
+    ahole[col].classList.remove('open');
     return;
-  } else if (hole.classList.contains('open') && oneBelow.classList.contains('open') ) {
+  } else if (ahole[col].classList.contains('open') && aOneBelow[col].classList.contains('open') ) {
+    // debugger;
     return checkSquare(row + 1, col);
   } else {
       if (currentPlayer.name === 'red') {
-      hole.classList.add('red');
+      ahole[col].classList.add('red');
       nextTurn();
-    } else {hole.classList.add('black');
+    } else {ahole[col].classList.add('black');
       nextTurn();
       }
-    hole.classList.remove('open');
+    ahole[col].classList.remove('open');
     return;
   }
     // set one above
