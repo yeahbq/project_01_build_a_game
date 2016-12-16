@@ -97,6 +97,20 @@ var checkSquare = function(row, col) {
   }
     // set one above
 }
+var count = 1;
+var vertical = function(row, col) {
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+
+  var i = (row*7 + col)
+  // debugger;
+  if (count === 4) {
+    document.write("YOU WIN!");
+    return;
+  } else if (hole[i].classList.contains('black')) {
+    count = count + 1;
+    return vertical (row - 1, col);
+  } else return count = 1;
+}
 
 var handleClick = function(event) {
   var position = this.dataset;
