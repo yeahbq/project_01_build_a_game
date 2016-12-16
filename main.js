@@ -20,6 +20,9 @@ var players = [
 var row = document.querySelector('.row');
 var board = document.querySelector('.board');
 // var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+var count = 0;
+var blackCount = 0;
+var redCount = 0;
 
 var currentPlayer = players[1];
 //start as black player, so when next turn is run, red starts the game
@@ -61,6 +64,8 @@ var addClass = function(event) {
   // debugger;
   console.log (row, col);
   checkSquare(row, col);
+  scanBlack();
+  scanRed();
   }
 }
 
@@ -97,71 +102,170 @@ var checkSquare = function(row, col) {
   }
     // set one above
 }
-var count = 0;
-var vertical = function(row, col) {
+
+var blackVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
   if (count === 4) {
-    document.write("YOU WIN!");
+    debugger;
+    document.write("black vertical YOU WIN!");
     return;
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
-    return vertical(row - 1, col);
-  } else if (hole[i].classList.contains('red')) {
-    count = count + 1;
-    return vertical(row - 1, col);
+    console.log(count);
+    return blackVertical(row - 1, col);
   } else return count = 0;
 }
 
-var horizontal = function(row, col) {
+var redVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
   if (count === 4) {
-    document.write("YOU WIN!");
+    debugger;
+    document.write("red vertical YOU WIN!");
     return;
-  } else if (hole[i].classList.contains('black')) {
-    count = count + 1;
-    return horizontal(row, col + 1);
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
-    return horizontal(row, col + 1);
+    console.log(count);
+    return redVertical(row - 1, col);
   } else return count = 0;
 }
 
-var rDiag = function(row, col) {
+var blackHorizontal = function(row, col) {
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+  var i = (row*7 + col)
+  // debugger;
+  if (count >= 4) {
+    console.log(row,col);
+    // debugger;
+    document.write("blackhorizontal WINS!");
+    return;
+  } else if (hole[i].classList.contains('black')) {
+    count = count + 1;
+    console.log(count);
+    return blackHorizontal(row, col + 1);
+  } else return count = 0;
+}
+
+var redHorizontal = function(row, col) {
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+  var i = (row*7 + col)
+  // debugger;
+  if (count >= 4) {
+    // debugger;
+    document.write("red horizontal WINS!");
+    return;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    console.log(count);
+    return redHorizontal(row, col + 1);
+  } else return count = 0;
+}
+
+var blackrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
   if (count === 4) {
-    document.write("YOU WIN!");
+    debugger;
+    document.write("black rDiag YOU WIN!");
     return;
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
-    return rDiag(row - 1, col + 1);
-  } else if (hole[i].classList.contains('red')) {
-    count = count + 1;
-    return rDiag(row - 1, col + 1);
+    console.log(count);
+    return blackrDiag(row - 1, col + 1);
   } else return count = 0;
 }
 
-var lDiag = function(row, col) {
+var redrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
-  debugger;
+  // debugger;
   if (count === 4) {
-    document.write("YOU WIN!");
+    debugger;
+    document.write("red rDiag YOU WIN!");
     return;
-  } else if (hole[i].classList.contains('black')) {
-    count = count + 1;
-    return lDiag(row - 1, col - 1);
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
-    return lDiag(row - 1, col - 1);
+    console.log(count);
+    return redrDiag(row - 1, col + 1);
   } else return count = 0;
 }
 
+var blacklDiag = function(row, col) {
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+  var i = (row*7 + col)
+  // debugger;
+  if (count === 4) {
+    debugger;
+    document.write("blackldiag YOU WIN!");
+    return;
+  } else if (hole[i].classList.contains('black')) {
+    count = count + 1;
+    console.log(count);
+    return blacklDiag(row - 1, col - 1);
+  } else return count = 0;
+}
+
+var redlDiag = function(row, col) {
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+  var i = (row*7 + col)
+  // debugger;
+  if (count === 4) {
+    debugger;
+    document.write("redldiag YOU WIN!");
+    return;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    console.log(count);
+    return redlDiag(row - 1, col - 1);
+  } else return count = 0;
+}
+
+//runs all win conditions at very bottom row, column spot
+var checkWin = function(row,col) {
+  // debugger;
+  blackVertical(row,col);
+  redVertical(row,col);
+  blackrDiag(row, col);
+  redrDiag(row, col);
+  blacklDiag(row, col);
+  redlDiag(row, col);
+  redHorizontal(row,col);
+  blackHorizontal(row,col);
+
+}
+
+//scans the whole board and returns the coordinate of possible winning locations
+var scanBlack = function(){
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+
+  for (var j = 0; j < hole.length; j++) {
+    if(hole[j].classList.contains('black')) {
+      console.log(hole[j]);
+     var rowz = parseInt(j / 7);
+     var columnz = parseInt(j % 7);
+      checkWin(rowz,columnz)
+      // debugger;
+    }
+  }
+}
+
+var scanRed = function(){
+  var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
+
+  for (var j = 0; j < hole.length; j++) {
+    if(hole[j].classList.contains('red')) {
+      console.log(hole[j]);
+      var rowz = parseInt(j / 7);
+      var columnz = parseInt(j % 7);
+      checkWin(rowz,columnz)
+      // debugger;
+    }
+  }
+}
 
 var handleClick = function(event) {
   var position = this.dataset;
@@ -169,7 +273,6 @@ var handleClick = function(event) {
   console.log(newBoard[position.row][position.col] = currentPlayer.name);
   renderBoard();
   nextTurn();
-
 
 }
 

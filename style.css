@@ -24,7 +24,7 @@ outline: dotted red, yellow;
 
 .board {
   background: rgba(0, 100, 255, .5);
-  width: 400px;
+  width: 415px;
   padding: 20px 0 10px 20px;
 }
 
