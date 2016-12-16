@@ -44,3 +44,7 @@ h2 {
   padding-left: 10px;
 transition-duration: .25s;
 text-decoration:underline;}
+
+.open {
+  background:rgba(255,255,255,0.85);
+}

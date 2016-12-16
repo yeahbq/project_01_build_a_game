@@ -17,13 +17,13 @@ var players = [
   }
 ];
 
-var row = document.querySelector('.row');
+// var row = document.querySelector('.row');
 var board = document.querySelector('.board');
 // var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
 var count = 0;
 var blackCount = 0;
 var redCount = 0;
-var spaces = 42;
+var spaces = 41;
 
 var currentPlayer = players[1];
 //start as black player, so when next turn is run, red starts the game
@@ -35,13 +35,13 @@ var nextTurn = function() {
 var whichPlayer = document.querySelector('h2');
   if (currentPlayer && currentPlayer.name === 'red') {
     currentPlayer = players[1];
-    whichPlayer.textContent = 'Player: BLACK';
+    whichPlayer.textContent = 'player: black';
     whichPlayer.style.color = "black"
     // console.log(currentPlayer.name, "turn")
     return currentPlayer.name;
       } else {
     currentPlayer = players[0];
-    whichPlayer.textContent = 'Player: RED';
+    whichPlayer.textContent = 'player: red';
     whichPlayer.style.color = "red"
     // console.log(currentPlayer.name, "turn")
     return currentPlayer.name;
@@ -54,7 +54,7 @@ var renderBoard = function () {
  for (var i = 0; i < 6; i++) {
    html += '<div class="row">';
    for (var j = 0; j < 7; j++) {
-     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">'  + '</div>';
+     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j]  + '</div>';
    }
    html += '</div>'
  }
@@ -74,7 +74,8 @@ var addClass = function(event) {
     checkSquare(row, col);
     scanBlack();
     scanRed();
-}
+    spaces -= 1;
+  }
 }
 
 //function used to recursively check for the bottom of the board using input from the rows
@@ -115,9 +116,10 @@ var blackVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
-    // debugger;
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "black vertical");
+    debugger;
     // document.write("black vertical YOU WIN!");
     return winner();
   } else if (hole[i].classList.contains('black')) {
@@ -131,8 +133,9 @@ var redVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "red vertical");
     // debugger;
     // document.write("red vertical YOU WIN!");
     return winner();
@@ -147,8 +150,9 @@ var blackHorizontal = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "black horizontal");
     // debugger;
     // document.write("blackhorizontal WINS!");
     return winner();
@@ -163,8 +167,9 @@ var redHorizontal = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "red horizontal");
     // document.write("red horizontal WINS!");
     return winner();
   } else if (hole[i].classList.contains('red')) {
@@ -178,8 +183,9 @@ var blackrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "black right diagonal");
     // document.write("black rDiag YOU WIN!");
     return winner();
   } else if (hole[i].classList.contains('black')) {
@@ -193,8 +199,9 @@ var redrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "red right diagonal");
     // document.write("red rDiag YOU WIN!");
     return winner();
   } else if (hole[i].classList.contains('red')) {
@@ -208,13 +215,14 @@ var blacklDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "black left diagonal");
     // document.write("blackldiag YOU WIN!");
     return winner();
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
-    console.log(count, "row", row, "col", col);
+    console.log(count);
     return blacklDiag(row - 1, col - 1);
   } else return count = 0;
 }
@@ -223,8 +231,9 @@ var redlDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count > 3) {
-    console.log(count);
+  if (hole[i].classList.contains('open')) return count = 0;
+  else if (count === 4) {
+    console.log(count, "row", row, "col", col, "red left diagonal");
     // document.write("redldiag YOU WIN!");
     return winner();
   } else if (hole[i].classList.contains('red')) {
@@ -248,6 +257,9 @@ var checkWin = function(row,col) {
   //check horizontal straigt across
   redHorizontal(row,col);
   blackHorizontal(row,col);
+
+  //runs tie function if spaces <= 0
+  if (spaces === 0) tie();
 }
 
 //scans the whole board and returns the coordinate of possible winning locations
@@ -256,7 +268,7 @@ var scanBlack = function(){
 
   for (var j = 0; j < hole.length; j++) {
     if(hole[j].classList.contains('black')) {
-      console.log(hole[j]);
+     // console.log(hole[j]);
      var rowz = parseInt(j / 7);
      var columnz = parseInt(j % 7);
       checkWin(rowz,columnz)
@@ -270,7 +282,7 @@ var scanRed = function(){
 
   for (var j = 0; j < hole.length; j++) {
     if(hole[j].classList.contains('red')) {
-      console.log(hole[j]);
+      // console.log(hole[j]);
       var rowz = parseInt(j / 7);
       var columnz = parseInt(j % 7);
       checkWin(rowz,columnz)
@@ -284,11 +296,16 @@ nextTurn();
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', addClass);
 var h2 = document.querySelector('h2');
-h2.innerHTML = "<h1>" + currentPlayer.name + " wins</h1>";
+h2.style.transition = "1s"
+h2.innerHTML = "<h1>" + currentPlayer.name + " wins!</h1>";
 }
 
 var tie = function() {
-document.write("it's a tie!")
+board.style.filter = "blur(5px)"
+board.removeEventListener('click', addClass);
+var h2 = document.querySelector('h2');
+h2.style.transition = "1s"
+h2.innerHTML = "<h1>tie game!</h1>";
 }
 
 // var handleClick = function(event) {
