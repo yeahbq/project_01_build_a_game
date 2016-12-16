@@ -29,9 +29,15 @@ outline: dotted red, yellow;
 }
 
 .red {
+  transition: .5s;
   background: red;
 }
 
 .black {
+  transition: .5s;
   background: black;
 }
+
+h2 {
+transition-duration: .25s;
+text-decoration:underline;}
