@@ -43,7 +43,7 @@ var renderBoard = function () {
  for (var i = 0; i < 6; i++) {
    html += '<div class="row">';
    for (var j = 0; j < 7; j++) {
-     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j] + '</div>';
+     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">'  + '</div>';
    }
    html += '</div>'
  }
@@ -97,7 +97,7 @@ var checkSquare = function(row, col) {
   }
     // set one above
 }
-var count = 1;
+var count = 0;
 var vertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
@@ -108,7 +108,10 @@ var vertical = function(row, col) {
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     return vertical(row - 1, col);
-  } else return count = 1;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    return vertical(row - 1, col);
+  } else return count = 0;
 }
 
 var horizontal = function(row, col) {
@@ -121,7 +124,10 @@ var horizontal = function(row, col) {
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     return horizontal(row, col + 1);
-  } else return count = 1;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    return horizontal(row, col + 1);
+  } else return count = 0;
 }
 
 var rDiag = function(row, col) {
@@ -134,7 +140,10 @@ var rDiag = function(row, col) {
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     return rDiag(row - 1, col + 1);
-  } else return count = 1;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    return rDiag(row - 1, col + 1);
+  } else return count = 0;
 }
 
 var lDiag = function(row, col) {
@@ -147,7 +156,10 @@ var lDiag = function(row, col) {
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     return lDiag(row - 1, col - 1);
-  } else return count = 1;
+  } else if (hole[i].classList.contains('red')) {
+    count = count + 1;
+    return lDiag(row - 1, col - 1);
+  } else return count = 0;
 }
 
 
