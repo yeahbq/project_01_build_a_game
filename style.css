@@ -31,13 +31,13 @@ outline: dotted red, yellow;
 }
 
 .red {
-  transition: .5s;
-  background: red;
+/*  transition: .5s;
+*/  background: red;
 }
 
 .black {
-  transition: .5s;
-  background: black;
+/*[  transition: .5s;
+]*/  background: black;
 }
 
 h2 {
