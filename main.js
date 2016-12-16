@@ -37,12 +37,14 @@ var whichPlayer = document.querySelector('h2');
     currentPlayer = players[1];
     whichPlayer.textContent = 'Player: BLACK';
     whichPlayer.style.color = "black"
-    console.log(currentPlayer.name, "turn")
+    // console.log(currentPlayer.name, "turn")
+    return currentPlayer.name;
       } else {
     currentPlayer = players[0];
     whichPlayer.textContent = 'Player: RED';
     whichPlayer.style.color = "red"
-    console.log(currentPlayer.name, "turn")
+    // console.log(currentPlayer.name, "turn")
+    return currentPlayer.name;
   }
 }
 
@@ -63,16 +65,16 @@ var renderBoard = function () {
 var addClass = function(event) {
   // console.log(event.target.dataset);
   if (event.target.classList.contains('open')) {
-      col = event.target.dataset.col;
-  row = event.target.dataset.row;
-  col = parseInt(col);
-  row = parseInt(row);
-  // debugger;
-  console.log (row, col);
-  checkSquare(row, col);
-  scanBlack();
-  scanRed();
-  }
+    col = event.target.dataset.col;
+    row = event.target.dataset.row;
+    col = parseInt(col);
+    row = parseInt(row);
+    // debugger;
+    console.log (row, col);
+    checkSquare(row, col);
+    scanBlack();
+    scanRed();
+}
 }
 
 //function used to recursively check for the bottom of the board using input from the rows
@@ -88,7 +90,7 @@ var checkSquare = function(row, col) {
     if (currentPlayer.name === 'red') {
       ahole[col].classList.add('red');
       nextTurn();
-    } else {ahole[col].classList.add('black');
+    } else { ahole[col].classList.add('black');
       nextTurn();
       }
     ahole[col].classList.remove('open');
@@ -104,8 +106,7 @@ var checkSquare = function(row, col) {
       nextTurn();
       }
     ahole[col].classList.remove('open');
-    if (count === 4) winner();
-    else return;
+    return;
   }
     // set one above
 }
@@ -114,10 +115,11 @@ var blackVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
+  if (count > 3) {
+    console.log(count);
     // debugger;
     // document.write("black vertical YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -129,10 +131,11 @@ var redVertical = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
+  if (count > 3) {
+    console.log(count);
     // debugger;
     // document.write("red vertical YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -144,11 +147,11 @@ var blackHorizontal = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    console.log(row,col);
+  if (count > 3) {
+    console.log(count);
     // debugger;
     // document.write("blackhorizontal WINS!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -160,10 +163,10 @@ var redHorizontal = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    // debugger;
+  if (count > 3) {
+    console.log(count);
     // document.write("red horizontal WINS!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -175,10 +178,10 @@ var blackrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    // debugger;
+  if (count > 3) {
+    console.log(count);
     // document.write("black rDiag YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -190,10 +193,10 @@ var redrDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    // debugger;
+  if (count > 3) {
+    console.log(count);
     // document.write("red rDiag YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -205,13 +208,13 @@ var blacklDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    // debugger;
+  if (count > 3) {
+    console.log(count);
     // document.write("blackldiag YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('black')) {
     count = count + 1;
-    console.log(count);
+    console.log(count, "row", row, "col", col);
     return blacklDiag(row - 1, col - 1);
   } else return count = 0;
 }
@@ -220,10 +223,10 @@ var redlDiag = function(row, col) {
   var hole = document.querySelectorAll('.hole'); //needs to call this within function to get updated board
   var i = (row*7 + col)
   // debugger;
-  if (count === 4) {
-    // debugger;
+  if (count > 3) {
+    console.log(count);
     // document.write("redldiag YOU WIN!");
-    return;
+    return winner();
   } else if (hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -278,8 +281,10 @@ var scanRed = function(){
 
 var winner = function() {
 nextTurn();
-console.log(currentPlayer.name + " winner")
-document.write(currentPlayer.name + ' wins!')
+board.style.filter = "blur(5px)"
+board.removeEventListener('click', addClass);
+var h2 = document.querySelector('h2');
+h2.innerHTML = "<h1>" + currentPlayer.name + " wins</h1>";
 }
 
 var tie = function() {

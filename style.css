@@ -5,6 +5,8 @@ body {
 .header{
   background-color: rgba(255, 255, 110, .8);
   color: rgba(25, 25, 25, .7);
+  width: 425px;
+  padding-left: 10px;
 }
 
 .header:hover {
@@ -39,5 +41,6 @@ outline: dotted red, yellow;
 }
 
 h2 {
+  padding-left: 10px;
 transition-duration: .25s;
 text-decoration:underline;}
