@@ -40,6 +40,11 @@ outline: dotted red, yellow;
 ]*/  background: black;
 }
 
+.yellow {
+/*[  transition: .5s;
+]*/  background: yellow;
+}
+
 h2 {
   padding-left: 10px;
 transition-duration: .25s;
