@@ -8,6 +8,7 @@ body {
   width: 425px;
   height: auto;
   padding-left: 10px;
+  border-radius: 10px;
 
 }
 
@@ -23,8 +24,6 @@ outline: dotted red, yellow;
   display: inline-block;
   margin-left: 2px;
   margin-top: 2px;
-  background-image: url(http://i.imgur.com/iHIbNlo.png);
-  background-size: contain;
   height: 50px;
 }
 
@@ -32,6 +31,8 @@ outline: dotted red, yellow;
   background: rgba(0, 100, 255, .5);
   width: 415px;
   padding: 20px 0 10px 20px;
+  border-radius: 10px;
+
 }
 
 .red {
@@ -82,5 +83,9 @@ width: 200px;
 */}
 
 .active {
-  border: 5px solid red;
+  border: 10px dotted red;
+  border-radius: 80px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG);
+  background-size: contain;
+  background-repeat: no-repeat;
 }

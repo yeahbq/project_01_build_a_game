@@ -32,14 +32,14 @@ var nextTurn = function() {
   var pikachu = document.querySelector('.pikachu')
   var snorlax = document.querySelector('.snorlax')
   if (currentPlayer.name === 'red') {
-    whichPlayer.textContent = 'player: black';
-    whichPlayer.style.color = "black"
+    // whichPlayer.textContent = 'player: black';
+    // whichPlayer.style.color = "black"
     pikachu.classList.remove('active')
     snorlax.classList.add('active')
     currentPlayer = players[1];
       } else {
-    whichPlayer.textContent = 'player: red';
-    whichPlayer.style.color = "red"
+    // whichPlayer.textContent = 'player: red';
+    // whichPlayer.style.color = "red"
     snorlax.classList.remove('active')
     pikachu.classList.add('active')
     currentPlayer = players[0];
@@ -112,6 +112,8 @@ var blackVertical = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "black vertical");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
+    return
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -125,6 +127,8 @@ var redVertical = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "red vertical");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
+    return
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -141,6 +145,8 @@ var blackHorizontalR = function(row, col) {
     var h2 = document.querySelector('h2');
     h2.innerHTML = currentPlayer.name + " wins!";
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -154,6 +160,8 @@ var blackHorizontalL = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "black horizontal left");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -167,6 +175,8 @@ var redHorizontalR = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "red horizontal right");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -180,6 +190,8 @@ var redHorizontalL = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "red horizontal left");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -193,6 +205,8 @@ var blackrDiag = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "black right diagonal");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -207,6 +221,8 @@ if (count > 3) {
     console.log(count, "row", row, "col", col, "red right diagonal");
     // document.write("red rDiag YOU WIN!");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -220,6 +236,8 @@ var blacklDiag = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "black left diagonal");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -233,6 +251,8 @@ var redlDiag = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "red left diagonal");
     return winner();
+  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+    return
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -269,7 +289,7 @@ var scan = function(){
 var winner = function() {
 var h2 = document.querySelector('h2');
 // debugger;
-h2.innerHTML = " wins!";
+h2.innerHTML = currentPlayer.name + " wins!";
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
 h2.style.background = "lightblue";
