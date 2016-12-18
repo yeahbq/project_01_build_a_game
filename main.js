@@ -69,7 +69,8 @@ var handleClick = function(event) {
     console.log (row, col);
     checkSquare(row, col);
     scan();
-    nextTurn();
+    if(count > 3) return;
+    else nextTurn();
   }
 }
 
@@ -145,7 +146,7 @@ var blackHorizontalR = function(row, col) {
     var h2 = document.querySelector('h2');
     h2.innerHTML = currentPlayer.name + " wins!";
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 4) {
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
     return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
@@ -175,7 +176,7 @@ var redHorizontalR = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "red horizontal right");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 4) {
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
     return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
@@ -288,13 +289,13 @@ var scan = function(){
 
 var winner = function() {
 var h2 = document.querySelector('h2');
+var active = document.querySelector('.active')
 // debugger;
-h2.innerHTML = currentPlayer.name + " wins!";
+h2.innerHTML = active.classList[0] + " wins!";
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
 h2.style.background = "lightblue";
 h2.style.width = "425px";
-  nextTurn();
 return;
 }
 
