@@ -1,18 +1,19 @@
 body {
-  background: pink;
+background:rgba(48,98,48,.5);
 }
 
 .gameboy {
-  background: url("http://vignette1.wikia.nocookie.net/nintendo/images/6/6f/Game_Boy_%28Grey_Model%29.png/revision/latest?cb=20121110153849&path-prefix=en");
-  background-size:contain;
-  height: 1500px;
+  background: url("http://i.imgur.com/aHnl7CE.png");
+  background-size:900px;
   background-repeat: no-repeat;
+  padding-left: 220px;
+  margin-top: -25px;
 }
 .header{
 /*  background-color: rgba(255, 255, 110, .8);
-*/
-  color: rgba(25, 25, 25, .7);
-  width: 425px;
+  color: rgba(25, 25, 25, .7);*/
+/*  padding-top: 20px;
+*/  width: 425px;
   height: auto;
 
 /*  padding-left: 10px;
@@ -22,24 +23,26 @@ body {
 
 
 .hole {
-  width: 50px;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
   background: goldenrod;
   border: 2px solid black;
-  border-radius: 50px;
   display: inline-block;
-  margin-left: 2px;
-  margin-top: 2px;
-  height: 50px;
+/*  margin-left: 2px;
+  margin-top: 2px;*/
 }
 
 .board {
-/*  background: rgba(0, 100, 255, .5);
-*/  width: 415px;
-  padding-top: 80px;
-  padding-left: 215px;
-  border-radius: 10px;
-
-}
+width: 343px;
+/*  padding-top: 80px;
+/*  background: rgba(20,20,40,1);
+  padding-left: 215px;*/
+/*  border-radius: 10px;
+*/
+/*background:rgba(48,98,48,.5);
+*/margin-top: -4px;
+margin-left: 61px;}
 
 .red {
   transition: .25s;
@@ -66,6 +69,8 @@ font-family: 'Press Start 2P', cursive;
 transition-duration: .25s;
 text-decoration:underline;
 display: inline-block;
+margin-top: 100px;
+margin-left: -50px;
 
 }
 
@@ -96,7 +101,7 @@ width: 200px;
 */}
 
 .icons {
-
+margin-left: -50px;
 }
 .active {
   border: 10px dotted red;
