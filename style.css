@@ -14,8 +14,8 @@ body {
 */}
 
 .bottomScreen {
-/*  height:100%;
-  width: 100%;*/
+  margin-top: 55px;
+  margin-left: 388px;
 }
 
 .header{
@@ -124,7 +124,13 @@ margin-left: -50px;
   background-repeat: no-repeat;
 }
 
-button {
-margin-top:20px;
-display: block;
+.reset {
+  background: url(http://simpleicon.com/wp-content/uploads/refresh-256x256.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  margin-left: 470px;
+  margin-top:90px;
+  display: block;
 }
