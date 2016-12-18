@@ -1,12 +1,12 @@
 //~~~~~~~~~~~~~~~~~~~VARIABLES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-var newBoard = [
-  [0, 1, 2, 3, 4, 5, 6],
-  [1, 1, 2, 3, 4, 5, 6],
-  [2, 1, 2, 3, 4, 5, 6],
-  [3, 1, 2, 3, 4, 5, 6],
-  [4, 1, 2, 3, 4, 5, 6],
-  [5, 1, 2, 3, 4, 5, 6]
-];
+// var newBoard = [
+//   [0, 1, 2, 3, 4, 5, 6],
+//   [1, 1, 2, 3, 4, 5, 6],
+//   [2, 1, 2, 3, 4, 5, 6],
+//   [3, 1, 2, 3, 4, 5, 6],
+//   [4, 1, 2, 3, 4, 5, 6],
+//   [5, 1, 2, 3, 4, 5, 6]
+// ];
 
 var players = [
   {
@@ -46,7 +46,7 @@ var renderBoard = function () {
  for (var i = 0; i < 6; i++) {
    html += '<div class="row">';
    for (var j = 0; j < 7; j++) {
-     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">' + newBoard[i][j]  + '</div>';
+     html += '<div class="hole open" data-row="' + i + '" data-col="' + j + '">' + '</div>';
    }
    html += '</div>'
  }
@@ -132,6 +132,8 @@ var blackHorizontalR = function(row, col) {
   var i = (row*7 + col)
     if (count > 3) {
     console.log(count, "row", row, "col", col, "black horizontal right");
+    var h2 = document.querySelector('h2');
+    h2.innerHTML = currentPlayer.name + " wins!";
     return winner();
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
@@ -259,15 +261,14 @@ var scan = function(){
 }
 
 var winner = function() {
-nextTurn();
+var h2 = document.querySelector('h2');
+// debugger;
+h2.innerHTML = currentPlayer.name + " wins!";
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
-var h2 = document.querySelector('h2');
 h2.style.background = "lightblue";
 h2.style.width = "425px";
-h2.style.color = "white";
-h2.style.border = "dotted gold"
-h2.innerHTML = h2.innerHTML + "wins!";
+return;
 }
 
 var tie = function() {
@@ -278,6 +279,7 @@ h2.style.color = "white"
 h2.style.background = "black"
 h2.style.width = "425px"
 h2.innerHTML = "<h1>tie game!</h1>";
+return;
 }
 
 
