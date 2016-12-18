@@ -293,10 +293,8 @@ var tie = function() {
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
 var h2 = document.querySelector('h2');
-h2.style.color = "rgba(10,10,10,1)"
-h2.style.background = "lightgreen"
-h2.style.width = "425px"
-h2.innerHTML = "<h1>tie game!</h1>";
+h2.style.marginLeft = "auto";
+h2.innerHTML = "tie game!";
 return;
 }
 
