@@ -24,6 +24,7 @@ var redCount = 0;
 var spaces = 42;
 //start as black player, so when next turn is run, red starts the game
 var currentPlayer = players[1];
+var button = document.querySelector('button');
 
 //~~~~~~~~~~~~~~~~~~~~FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //changes who currentPlayer points at
@@ -310,7 +311,17 @@ h2.innerHTML = "<h1>tie game!</h1>";
 return;
 }
 
+var newGame = function() {
+  var h2 = document.querySelector('h2');
+  h2.innerHTML = "PLAYER:";
+  board.style.filter = "blur(0px)"
+  h2.style.background = "rgba(0,0,0,0)";
+  renderBoard();
+  count = 0;
+  board.addEventListener('click', handleClick);
+}
 
 //this event listener uses add class function, and makes clicked items in board red
 board.addEventListener('click', handleClick);
+button.addEventListener('click', newGame);
 renderBoard();
