@@ -303,6 +303,7 @@ var newGame = function() {
   h2.innerHTML = "PLAYER:";
   board.style.filter = "blur(0px)"
   h2.style.background = "rgba(0,0,0,0)";
+  h2.style.marginLeft = "-50px";
   renderBoard();
   count = 0;
   board.addEventListener('click', handleClick);
