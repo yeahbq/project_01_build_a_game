@@ -2,19 +2,24 @@ body {
   background: pink;
 }
 
+.gameboy {
+  background: url("http://vignette1.wikia.nocookie.net/nintendo/images/6/6f/Game_Boy_%28Grey_Model%29.png/revision/latest?cb=20121110153849&path-prefix=en");
+  background-size:contain;
+  height: 1500px;
+  background-repeat: no-repeat;
+}
 .header{
-  background-color: rgba(255, 255, 110, .8);
+/*  background-color: rgba(255, 255, 110, .8);
+*/
   color: rgba(25, 25, 25, .7);
   width: 425px;
   height: auto;
-  padding-left: 10px;
-  border-radius: 10px;
 
+/*  padding-left: 10px;
+*//*  border-radius: 10px;
+*/
 }
 
-.header:hover {
-outline: dotted red, yellow;
-}
 
 .hole {
   width: 50px;
@@ -28,9 +33,10 @@ outline: dotted red, yellow;
 }
 
 .board {
-  background: rgba(0, 100, 255, .5);
-  width: 415px;
-  padding: 20px 0 10px 20px;
+/*  background: rgba(0, 100, 255, .5);
+*/  width: 415px;
+  padding-top: 80px;
+  padding-left: 215px;
   border-radius: 10px;
 
 }
@@ -56,8 +62,13 @@ background-size: contain;
 }
 
 h2 {
+font-family: 'Press Start 2P', cursive;
 transition-duration: .25s;
-text-decoration:underline;}
+text-decoration:underline;
+display: inline-block;
+
+}
+
 
 .open {
   background:rgba(255,255,255,0.85);
@@ -74,13 +85,19 @@ width: 200px;
 }
 
 .pikachu {
+  overflow: auto;
 /* border: solid 5px red;
 */}
 
 .snorlax {
+  overflow: auto;
+
 /*border: dotted 5px black;
 */}
 
+.icons {
+
+}
 .active {
   border: 10px dotted red;
   border-radius: 80px;
@@ -91,5 +108,5 @@ width: 200px;
 
 button {
 margin-top:20px;
-display: inline-block;
+display: block;
 }
