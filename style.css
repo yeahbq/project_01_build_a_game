@@ -1,31 +1,34 @@
 body {
-background:rgba(48,98,48,.5);
-}
-
-.gameboy {
-  background: url("http://i.imgur.com/aHnl7CE.png");
-  background-size:900px;
+  background: url("http://www.gamestop.com/gs/images/content-pdp/New_Nintendo_3DS/Nintendo_New3DS_Open_.jpg");
+  background-size:cover;
   background-repeat: no-repeat;
-  padding-left: 220px;
-  margin-top: -25px;
-}
-.header{
-/*  background-color: rgba(255, 255, 110, .8);
-  color: rgba(25, 25, 25, .7);*/
-/*  padding-top: 20px;
-*/  width: 425px;
-  height: auto;
-
-/*  padding-left: 10px;
-*//*  border-radius: 10px;
+/*background:rgba(48,98,48,.5);
 */
+}
+
+.topScreen {
+  position: relative;
+/*padding-top: 60%;
+*/}
+
+.bottomScreen {
+/*  height:100%;
+  width: 100%;*/
+}
+
+.header{
+  background-color: rgba(255, 255, 110, .8);
+    margin-left: 23%;
+    margin-top: 13%;
+    width: 16%
+
 }
 
 
 .hole {
-  width: 45px;
-  height: 45px;
-  border-radius: 45px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
   background: goldenrod;
   border: 2px solid black;
   display: inline-block;
@@ -34,15 +37,11 @@ background:rgba(48,98,48,.5);
 }
 
 .board {
-width: 343px;
-/*  padding-top: 80px;
+  width: 343px;
 /*  background: rgba(20,20,40,1);
-  padding-left: 215px;*/
-/*  border-radius: 10px;
-*/
-/*background:rgba(48,98,48,.5);
-*/margin-top: -4px;
-margin-left: 61px;}
+*/  background:rgba(48,98,48,.5);
+}
+
 
 .red {
   transition: .25s;
@@ -60,8 +59,8 @@ background-size: contain;
 }
 
 .yellow {
-/*[  transition: .5s;
-]*/  background: yellow;
+[  transition: .5s;
+]  background: yellow;
 }
 
 h2 {
@@ -80,19 +79,22 @@ margin-left: -50px;
 }
 
 .titleHeader {
-width: 200px;
-}
+  height: 25px;
+display: inline-block;}
 
 .pokemonHeader {
-  padding-left:30px;
+  display: inline-block;
+  background-size:contain;
+  height:35px;
+/*  padding-left:30px;
   height: 70px;
-  width: 140px;
+  width: 140px;*/
 }
 
 .pikachu {
   overflow: auto;
 /* border: solid 5px red;
-*/}
+}
 
 .snorlax {
   overflow: auto;

@@ -3,15 +3,16 @@
 <head>
   <title>Barrett's Connect Four</title>
   <link rel="stylesheet" href="style.css">
-<!--   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   --><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
-  <div class="gameboy">
+  <div class="gameboy topScreen">
     <h1 class="header">
       <img class="pokemonHeader" src="http://www.poklat.com/wp-content/uploads/2016/09/a6078c_2fd9033b2be04c9b947d1aac6cdaef60.gif" alt="Pokemon Header">
       <img class="titleHeader" src="http://www.funpages.com/games/connect4/title.gif" alt="Connect Four">
     </h1>
+  </div>
     <div class ="board">
       <div class="hole red" data-row="0" data-col="0">x</div>
       <div class="hole black" data-row="0" data-col="1">x</div>
@@ -20,6 +21,7 @@
     <div>
       <h2 class="currentPlayer">PLAYER: </h2>
     </div>
+  <div class="gameboy bottomScreen">
     <div class="icons">
       <img class="snorlax active" src="http://www.serebii.net/shuffle/pokemon/143.png" alt="snorlax">
       <img class="pikachu" src="http://www.serebii.net/shuffle/pokemon/025.png" alt="pikachu!">
