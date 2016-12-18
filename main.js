@@ -113,7 +113,7 @@ var blackVertical = function(row, col) {
     console.log(count, "row", row, "col", col, "black vertical");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 6) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -128,7 +128,7 @@ var redVertical = function(row, col) {
     console.log(count, "row", row, "col", col, "red vertical");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 6) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -145,8 +145,8 @@ var blackHorizontalR = function(row, col) {
     var h2 = document.querySelector('h2');
     h2.innerHTML = currentPlayer.name + " wins!";
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+  } else if (row < 0 || row > 5 || col < 0 || col > 4) {
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -160,8 +160,8 @@ var blackHorizontalL = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "black horizontal left");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+  } else if (row < 0 || row > 5 || col < 2 || col > 5) {
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -175,8 +175,8 @@ var redHorizontalR = function(row, col) {
     if (count > 3) {
     console.log(count, "row", row, "col", col, "red horizontal right");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+  } else if (row < 0 || row > 5 || col < 0 || col > 4) {
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -190,8 +190,8 @@ var redHorizontalL = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "red horizontal left");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+  } else if (row < 0 || row > 5 || col < 2 || col > 5) {
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -206,7 +206,7 @@ var blackrDiag = function(row, col) {
     console.log(count, "row", row, "col", col, "black right diagonal");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -222,7 +222,7 @@ if (count > 3) {
     // document.write("red rDiag YOU WIN!");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -237,7 +237,7 @@ if (count > 3) {
     console.log(count, "row", row, "col", col, "black left diagonal");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
     console.log(count);
@@ -252,7 +252,7 @@ if (count > 3) {
     console.log(count, "row", row, "col", col, "red left diagonal");
     return winner();
   } else if (row < 0 || row > 5 || col < 0 || col > 5) {
-    return
+    return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
     console.log(count);
@@ -294,6 +294,7 @@ board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
 h2.style.background = "lightblue";
 h2.style.width = "425px";
+  nextTurn();
 return;
 }
 
