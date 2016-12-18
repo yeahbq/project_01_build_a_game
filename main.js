@@ -29,13 +29,19 @@ var currentPlayer = players[1];
 //changes who currentPlayer points at
 var nextTurn = function() {
   var whichPlayer = document.querySelector('h2');
+  var pikachu = document.querySelector('.pikachu')
+  var snorlax = document.querySelector('.snorlax')
   if (currentPlayer.name === 'red') {
     whichPlayer.textContent = 'player: black';
     whichPlayer.style.color = "black"
+    pikachu.classList.remove('active')
+    snorlax.classList.add('active')
     currentPlayer = players[1];
       } else {
     whichPlayer.textContent = 'player: red';
     whichPlayer.style.color = "red"
+    snorlax.classList.remove('active')
+    pikachu.classList.add('active')
     currentPlayer = players[0];
   }
 }
@@ -263,7 +269,7 @@ var scan = function(){
 var winner = function() {
 var h2 = document.querySelector('h2');
 // debugger;
-h2.innerHTML = currentPlayer.name + " wins!";
+h2.innerHTML = " wins!";
 board.style.filter = "blur(5px)"
 board.removeEventListener('click', handleClick);
 h2.style.background = "lightblue";

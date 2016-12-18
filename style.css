@@ -6,7 +6,9 @@ body {
   background-color: rgba(255, 255, 110, .8);
   color: rgba(25, 25, 25, .7);
   width: 425px;
+  height: auto;
   padding-left: 10px;
+
 }
 
 .header:hover {
@@ -14,14 +16,16 @@ outline: dotted red, yellow;
 }
 
 .hole {
-  height: 50px;
   width: 50px;
-  background: white;
+  background: goldenrod;
   border: 2px solid black;
   border-radius: 50px;
   display: inline-block;
   margin-left: 2px;
   margin-top: 2px;
+  background-image: url(http://i.imgur.com/iHIbNlo.png);
+  background-size: contain;
+  height: 50px;
 }
 
 .board {
@@ -32,12 +36,17 @@ outline: dotted red, yellow;
 
 .red {
   transition: .25s;
-  background: red;
+  background: rgba(255, 0, 0, .6);
+  background-image: url(http://www.serebii.net/shuffle/pokemon/025.png);
+  background-size: contain;
 }
 
 .black {
   transition: .25s;
-  background: black;
+  background: rgba(0, 0, 0, .5);
+  background-image: url(http://www.serebii.net/shuffle/pokemon/143.png);
+background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .yellow {
@@ -52,4 +61,26 @@ text-decoration:underline;}
 
 .open {
   background:rgba(255,255,255,0.85);
+}
+
+.titleHeader {
+width: 200px;
+}
+
+.pokemonHeader {
+  padding-left:30px;
+  height: 70px;
+  width: 140px;
+}
+
+.pikachu {
+/* border: solid 5px red;
+*/}
+
+.snorlax {
+/*border: dotted 5px black;
+*/}
+
+.active {
+  border: 5px solid red;
 }
