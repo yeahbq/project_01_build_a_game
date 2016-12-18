@@ -1,7 +1,9 @@
 body {
   background: url("http://www.gamestop.com/gs/images/content-pdp/New_Nintendo_3DS/Nintendo_New3DS_Open_.jpg");
-  background-size:cover;
+  background-size:1000px 1000px;
   background-repeat: no-repeat;
+  height: 1000px;
+  width: 1000px;
 /*background:rgba(48,98,48,.5);
 */
 }
@@ -25,6 +27,7 @@ body {
 .row{
 display: block;
 height: auto;
+margin-left: 4%;
 }
 
 .hole {
@@ -34,18 +37,22 @@ height: auto;
   background: goldenrod;
   border: 2px solid black;
   display: inline-block;
-/*  margin-left: 2px;
-  margin-top: 2px;*/
-}
+/*  margin-top: 2px;
+*/}
 
 .board {
+  padding-top: 3%;
+  padding-bottom: 2.3%;
   padding-left: 10%;
-  margin-left: 23%;
-  margin-top: -1%;
-  width: 43%;
-  height: 305px;
-/*  background: rgba(20,20,40,1);
-*/  background:rgba(48,98,48,1);
+/*margin-left: 23%;*/
+/*  margin-top: -1%;*/
+margin-left: 240px;
+margin-top: -3px;
+/*width: 43%;*/
+width: 410px;
+/*  height: 305px;*/
+/*  background: rgba(20,20,40,1);*/
+background:rgba(156,189,15,.9);
 }
 
 
