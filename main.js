@@ -237,7 +237,7 @@ var blacklDiag = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "black left diagonal");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
     return count = 0;
   } else if (hole[i] && hole[i].classList.contains('black')) {
     count = count + 1;
@@ -252,7 +252,7 @@ var redlDiag = function(row, col) {
 if (count > 3) {
     console.log(count, "row", row, "col", col, "red left diagonal");
     return winner();
-  } else if (row < 0 || row > 5 || col < 0 || col > 5) {
+  } else if (row < 0 || row > 5 || col < 0 || col > 6) {
     return count = 0;
   } else if (hole[i] && hole[i].classList.contains('red')) {
     count = count + 1;
