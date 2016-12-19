@@ -1,27 +1,23 @@
 body {
-  background: url("http://www.gamestop.com/gs/images/content-pdp/New_Nintendo_3DS/Nintendo_New3DS_Open_.jpg");
-  background-size:1000px 1000px;
-  background-repeat: no-repeat;
-  height: 1000px;
-  width: 1000px;
-/*background:rgba(48,98,48,.5);
-*/
+background: url("http://www.gamestop.com/gs/images/content-pdp/New_Nintendo_3DS/Nintendo_New3DS_Open_.jpg");
+background-size:1000px 1000px;
+background-repeat: no-repeat;
+height: 1000px;
+width: 1000px;
 }
 
 .topScreen {
-  position: relative;
-/*padding-top: 60%;
-*/}
+position: relative;
+}
 
 .bottomScreen {
-  margin-top: 55px;
-  margin-left: 388px;
+margin-top: 55px;
+margin-left: 388px;
 }
 
 .header{
-/*  background-color: rgba(255, 255, 110, .8);
-*/    margin-left: 23%;
-    margin-top: 8%;
+margin-left: 23%;
+margin-top: 8%;
 }
 
 .row{
@@ -31,50 +27,42 @@ margin-left: 4%;
 }
 
 .hole {
-  width: 35px;
-  height: 35px;
-  border-radius: 100%;
-  background: goldenrod;
-  border: 2px solid black;
-  display: inline-block;
-/*  margin-top: 2px;
-*/}
+width: 35px;
+height: 35px;
+border-radius: 100%;
+background: goldenrod;
+border: 2px solid black;
+display: inline-block;
+}
 
 .board {
-  padding-top: 3%;
-  padding-bottom: 2.3%;
-  padding-left: 10%;
-/*margin-left: 23%;*/
-/*  margin-top: -1%;*/
+padding-top: 3%;
+padding-bottom: 2.3%;
+padding-left: 10%;
 margin-left: 240px;
 margin-top: -3px;
-/*width: 43%;*/
 width: 410px;
-/*  height: 305px;*/
-/*  background: rgba(20,20,40,1);*/
 background:rgba(156,189,15,.9);
+/*margin-left: 23%; percentages vs pixels*/
+/*margin-top: -1%;*/
+/*width: 43%;*/
 }
 
 
 .red {
-  transition: .25s;
-  background: rgba(255, 0, 0, .6);
-  background-image: url(http://www.serebii.net/shuffle/pokemon/025.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+transition: .25s;
+background: rgba(255, 0, 0, .6);
+background-image: url(http://www.serebii.net/shuffle/pokemon/025.png);
+background-size: contain;
+background-repeat: no-repeat;
 }
 
 .black {
-  transition: .25s;
-  background: rgba(0, 0, 0, .5);
-  background-image: url(http://www.serebii.net/shuffle/pokemon/143.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.yellow {
-[  transition: .5s;
-]  background: yellow;
+transition: .25s;
+background: rgba(0, 0, 0, .5);
+background-image: url(http://www.serebii.net/shuffle/pokemon/143.png);
+background-size: contain;
+background-repeat: no-repeat;
 }
 
 h2 {
@@ -84,53 +72,39 @@ text-decoration:underline;
 display: inline-block;
 margin-top: 100px;
 margin-left: -50px;
-
 }
 
 
 .open {
-  background:rgba(255,255,255,0.85);
+background:rgba(255,255,255,0.85);
 }
 
 .titleHeader {
-  height: 25px;
+height: 25px;
 display: inline-block;}
 
 .pokemonHeader {
-  display: inline-block;
-  background-size:contain;
-  height:35px;
-/*  padding-left:30px;
-  height: 70px;
-  width: 140px;*/
-}
-
-.pikachu {
-  background-repeat: no-repeat;
-}
-
-.snorlax {
-
+display: inline-block;
+background-size:contain;
+height:35px;
 }
 
 .icons {
 margin-left: -50px;
 }
+
 .active {
-  border: 10px dotted red;
-  border-radius: 80px;
-  background-image: url(https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG);
-  background-size: contain;
-  background-repeat: no-repeat;
+border: 10px dotted red;
+border-radius: 80px;
 }
 
 .reset {
-  background: url(http://simpleicon.com/wp-content/uploads/refresh-256x256.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 50px;
-  width: 50px;
-  margin-left: 470px;
-  margin-top:90px;
-  display: block;
+background: url(http://simpleicon.com/wp-content/uploads/refresh-256x256.png);
+background-size: contain;
+background-repeat: no-repeat;
+height: 50px;
+width: 50px;
+margin-left: 470px;
+margin-top:90px;
+display: block;
 }
