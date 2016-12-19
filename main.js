@@ -299,11 +299,12 @@ var newGame = function() {
   board.style.filter = "blur(0px)"
   h2.style.background = "rgba(0,0,0,0)";
   h2.style.marginLeft = "-50px";
-  currentPlayer = players[1];
   pikachu.classList.remove('active');
   snorlax.classList.add('active');
-  renderBoard();
+  currentPlayer = players[1];
+  spaces = 42;
   count = 0;
+  renderBoard();
   board.addEventListener('click', handleClick);
   return;
 }
