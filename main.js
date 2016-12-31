@@ -9,6 +9,8 @@ var players = [
 ];
 
 var board = document.querySelector('.board');
+// var board = jQuery('.board');
+
 var count = 0;
 var spaces = 42;
 var currentPlayer = players[1]; //start as black player, so when next turn is run, red starts the game
